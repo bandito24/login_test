@@ -36,9 +36,11 @@ public function deleteUser($key){
     $stmt->bind_param('i', $id);
 
     if($stmt->execute()){
-        echo "User Deleted";
+        // echo "User Deleted with id of " . $id;
+        return true;
     } else {
         echo "Error deleting user: " . $stmt->error;
+        // return false;
     }
 
 

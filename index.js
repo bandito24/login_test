@@ -27,7 +27,7 @@ createUserForm.addEventListener('submit', async function(e){
                     deleteUserBtn.innerHTML = "delete user"
 
                     userBlock.append(existingUser, deleteUserBtn)
-                    document.getElementById('return-all-users').append(userBlock)
+                    document.getElementById('return-all-users').insertBefore(userBlock, document.getElementById('return-all-users').firstChild)
                 }
             }
         } else {
@@ -41,10 +41,41 @@ createUserForm.addEventListener('submit', async function(e){
 
 //FOR DELETING A USER 
 const returnAllUsers = document.getElementById('return-all-users')
-returnAllUsers.addEventListener('click', function(e){
+returnAllUsers.addEventListener('click', async function(e){
     if(e.target.parentNode.classList.contains('user-block')){
         const user = e.target.parentNode
         const id = user.getAttribute('data-key')
         console.log(parseInt(id))
+        const data = new FormData();
+        data.append('key', id);
+
+        fetch('./delete_user.php', {
+            method: 'POST',
+            body: data
+          })
+            .then(response => response.text())
+            .then(result => {
+              console.log(result);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+
+        while(user.firstChild){
+            user.removeChild(user.firstChild)
+        }
+        user.parentNode.removeChild(user)
+
+
+
+
+
+
+
+
+
+
+
+
     }
 })

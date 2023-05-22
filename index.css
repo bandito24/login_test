@@ -1,0 +1,15 @@
+.delete-user-btn{
+    display: inline;
+    background-color: lightcoral;
+    align-self: center;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+.delete-user-btn:hover{
+    cursor: pointer;
+}
+
+.user-block{
+    display: flex;
+    justify-content: flex-start;
+}
