@@ -4,8 +4,7 @@ $admin = new Admin;
 
 if(isset($_POST['key'])){
     $id = $_POST['key'];
-    
-    // $admin->deleteUser($id);
+
     if ($admin->deleteUser($id)) {
         echo "User with ID $id deleted successfully";
     } else {

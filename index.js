@@ -1,7 +1,12 @@
 //FOR CREATING A NEW USER AND DISPLAYING THE DATA
 const createUserForm = document.getElementById('create-user-form')
 createUserForm.addEventListener('submit', async function(e){
+    
     e.preventDefault();
+    // if(document.getElementById('new-password').value !== document.getElementById('confirm-password').value){
+    //     console.log("Passwords do not match");
+    //     return;
+    // }
     try{
         const formData = new FormData(this)
 
